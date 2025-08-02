@@ -1,17 +1,17 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// 🔒 Add CORS
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(policy =>
-        policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
-});
+// Register CORS services
+builder.Services.AddCors();
 
 var app = builder.Build();
 
-app.UseCors(); // ✅ Enable CORS
+// Enable CORS with open policy so the front-end can call the API
+app.UseCors(policy =>
+    policy.AllowAnyOrigin()
+          .AllowAnyMethod()
+          .AllowAnyHeader());
 
-app.MapGet("/api/products", () =>
+app.MapGet("/api/productlist", () =>
 {
     return new[]
     {
