@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "j/yrhtvhpJc=",
+  "success": true,
+  "projectFilePath": "/Users/rakshithathanasekaran/Documents/MicrosoftCertification/FullStackApp/ServerApp/ServerApp.csproj",
+  "expectedPackageFiles": [
+    "/Users/rakshithathanasekaran/.nuget/packages/microsoft.aspnetcore.openapi/9.0.5/microsoft.aspnetcore.openapi.9.0.5.nupkg.sha512",
+    "/Users/rakshithathanasekaran/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
