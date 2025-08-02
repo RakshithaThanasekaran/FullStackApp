@@ -1,38 +1,58 @@
 @page "/fetchproducts"
-@using System.Text.Json
 @inject HttpClient Http
+@using System.Text.Json
 
 <h3>Product List</h3>
 
+<!-- This will display any error message -->
+<p style="color: red;">@errorMessage</p>
+
 <ul>
-   @if (products != null)
-   {
-       foreach (var product in products)
-       {
-           <li>@product.Name - $@product.Price</li>
-       }
-   }
-   else
-   {
-       <li>Loading...</li>
-   }
+    @if (products != null && products.Length > 0)
+    {
+        foreach (var product in products)
+        {
+            <li>
+                <strong>@product.Name</strong> - $@product.Price<br />
+                <small>Category: @product.Category.Name</small>
+            </li>
+        }
+    }
+    else if (isLoading)
+    {
+        <li>Loading...</li>
+    }
+    else if (string.IsNullOrEmpty(errorMessage))
+    {
+        <li>No products found.</li>
+    }
 </ul>
 
 @code {
     private Product[]? products;
+    private bool isLoading = true;
+    private string errorMessage = "";
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            var response = await Http.GetAsync("/api/productlist");
+            var response = await Http.GetAsync("http://localhost:5015/api/productlist");
             response.EnsureSuccessStatusCode();
+
             var json = await response.Content.ReadAsStringAsync();
-            products = JsonSerializer.Deserialize<Product[]>(json);
+            products = JsonSerializer.Deserialize<Product[]>(json, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+            if (products == null || products.Length == 0)
+                errorMessage = "No products returned from API.";
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Error fetching products: {ex.Message}");
+            errorMessage = $"Error: {ex.Message}";
+        }
+        finally
+        {
+            isLoading = false;
         }
     }
 
@@ -42,5 +62,12 @@
         public string Name { get; set; } = string.Empty;
         public double Price { get; set; }
         public int Stock { get; set; }
+        public Category Category { get; set; } = new Category();
+    }
+
+    public class Category
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
     }
 }

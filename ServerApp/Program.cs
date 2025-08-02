@@ -1,37 +1,39 @@
-var builder = WebApplication.CreateBuilder(args);
+using Microsoft.Extensions.Caching.Memory;
 
-// Register CORS services
-builder.Services.AddCors();
+record Category(int Id, string Name);
+record Product(int Id, string Name, double Price, int Stock, Category Category);
 
-var app = builder.Build();
-
-// Enable CORS with open policy so the front-end can call the API
-app.UseCors(policy =>
-    policy.AllowAnyOrigin()
-          .AllowAnyMethod()
-          .AllowAnyHeader());
-
-app.MapGet("/api/productlist", () =>
+public class Program
 {
-    return new[]
+    public static void Main(string[] args)
     {
-        new
-        {
-            Id = 1,
-            Name = "Laptop",
-            Price = 1200.50,
-            Stock = 25,
-            Category = new { Id = 101, Name = "Electronics" }
-        },
-        new
-        {
-            Id = 2,
-            Name = "Headphones",
-            Price = 50.00,
-            Stock = 100,
-            Category = new { Id = 102, Name = "Accessories" }
-        }
-    };
-});
+        var builder = WebApplication.CreateBuilder(args);
 
-app.Run();
+        builder.Services.AddCors();
+        builder.Services.AddMemoryCache();
+
+        var app = builder.Build();
+
+        app.UseCors(policy =>
+            policy.AllowAnyOrigin()
+                  .AllowAnyMethod()
+                  .AllowAnyHeader());
+
+        var cache = app.Services.GetRequiredService<IMemoryCache>();
+
+        app.MapGet("/api/productlist", () =>
+        {
+            return cache.GetOrCreate("productListCacheKey", entry =>
+            {
+                entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5);
+                return new[]
+                {
+                    new Product(1, "Laptop", 1200.50, 25, new Category(101, "Electronics")),
+                    new Product(2, "Headphones", 50.00, 100, new Category(102, "Accessories"))
+                };
+            });
+        });
+
+        app.Run();
+    }
+}

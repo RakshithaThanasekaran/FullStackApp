@@ -1070,10 +1070,10 @@
 /Users/rakshithathanasekaran/Documents/MicrosoftCertification/FullStackApp/ClientApp/obj/Debug/net9.0/refint/ClientApp.dll
 /Users/rakshithathanasekaran/Documents/MicrosoftCertification/FullStackApp/ClientApp/obj/Debug/net9.0/ClientApp.pdb
 /Users/rakshithathanasekaran/Documents/MicrosoftCertification/FullStackApp/ClientApp/obj/Debug/net9.0/ref/ClientApp.dll
-/Users/rakshithathanasekaran/Documents/MicrosoftCertification/FullStackApp/ClientApp/bin/Debug/net9.0/wwwroot/_framework/ClientApp.tijuh3xxgs.wasm
-/Users/rakshithathanasekaran/Documents/MicrosoftCertification/FullStackApp/ClientApp/bin/Debug/net9.0/wwwroot/_framework/ClientApp.5otszzh1k2.pdb
-/Users/rakshithathanasekaran/Documents/MicrosoftCertification/FullStackApp/ClientApp/bin/Debug/net9.0/wwwroot/_framework/ClientApp.tijuh3xxgs.wasm.gz
-/Users/rakshithathanasekaran/Documents/MicrosoftCertification/FullStackApp/ClientApp/bin/Debug/net9.0/wwwroot/_framework/ClientApp.5otszzh1k2.pdb.gz
-/Users/rakshithathanasekaran/Documents/MicrosoftCertification/FullStackApp/ClientApp/obj/Debug/net9.0/compressed/kwzkrbi5h4-tijuh3xxgs.gz
-/Users/rakshithathanasekaran/Documents/MicrosoftCertification/FullStackApp/ClientApp/obj/Debug/net9.0/compressed/ftph3tm72y-5otszzh1k2.gz
-/Users/rakshithathanasekaran/Documents/MicrosoftCertification/FullStackApp/ClientApp/obj/Debug/net9.0/compressed/rot3wv43ix-vce9swwrln.gz
+/Users/rakshithathanasekaran/Documents/MicrosoftCertification/FullStackApp/ClientApp/bin/Debug/net9.0/wwwroot/_framework/ClientApp.j1kz58q8y2.wasm
+/Users/rakshithathanasekaran/Documents/MicrosoftCertification/FullStackApp/ClientApp/bin/Debug/net9.0/wwwroot/_framework/ClientApp.jiuwv8zo8d.pdb
+/Users/rakshithathanasekaran/Documents/MicrosoftCertification/FullStackApp/ClientApp/bin/Debug/net9.0/wwwroot/_framework/ClientApp.j1kz58q8y2.wasm.gz
+/Users/rakshithathanasekaran/Documents/MicrosoftCertification/FullStackApp/ClientApp/bin/Debug/net9.0/wwwroot/_framework/ClientApp.jiuwv8zo8d.pdb.gz
+/Users/rakshithathanasekaran/Documents/MicrosoftCertification/FullStackApp/ClientApp/obj/Debug/net9.0/compressed/kwzkrbi5h4-j1kz58q8y2.gz
+/Users/rakshithathanasekaran/Documents/MicrosoftCertification/FullStackApp/ClientApp/obj/Debug/net9.0/compressed/ftph3tm72y-jiuwv8zo8d.gz
+/Users/rakshithathanasekaran/Documents/MicrosoftCertification/FullStackApp/ClientApp/obj/Debug/net9.0/compressed/rot3wv43ix-ry4mddvjyo.gz
